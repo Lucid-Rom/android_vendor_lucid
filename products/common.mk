@@ -1,7 +1,7 @@
 # Generic product
-PRODUCT_NAME := minpop
-PRODUCT_BRAND := minpop
-PRODUCT_DEVICE := generic
+#PRODUCT_NAME := minpop
+#PRODUCT_BRAND := minpop
+#PRODUCT_DEVICE := generic
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
