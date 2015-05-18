@@ -1,1 +1,1 @@
-add_lunch_combo minpop_shamu-userdebug
+add_lunch_combo lucid_shamu-userdebug

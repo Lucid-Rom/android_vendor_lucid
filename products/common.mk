@@ -1,6 +1,6 @@
 # Generic product
-#PRODUCT_NAME := minpop
-#PRODUCT_BRAND := minpop
+#PRODUCT_NAME := lucid
+#PRODUCT_BRAND := lucid
 #PRODUCT_DEVICE := generic
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -29,8 +29,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=everything
     
 # Include overlays
-PRODUCT_PACKAGE_OVERLAYS += vendor/minpop/overlay/common
-PRODUCT_PACKAGE_OVERLAYS += vendor/minpop/overlay/$(TARGET_PRODUCT)
+PRODUCT_PACKAGE_OVERLAYS += vendor/lucid/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/lucid/overlay/$(TARGET_PRODUCT)
 
 # Launcher3 supported devices
 PRODUCT_PACKAGES += \
@@ -40,16 +40,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
     
+# UKM for Vindicator
+PRODUCT_COPY_FILES += \
+    vendor/lucid/prebuilt/kernel/data/UKM.zip:system/addon.d/UKM.zip
+
 # Backuptool support
 PRODUCT_COPY_FILES += \
-    vendor/minpop/prebuilt/addon.d/50-minpop.sh:system/addon.d/50-minpop.sh \
-    vendor/minpop/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/minpop/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
+    vendor/lucid/prebuilt/addon.d/50-minpop.sh:system/addon.d/50-minpop.sh \
+    vendor/lucid/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/lucid/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-    vendor/minpop/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/minpop/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+    vendor/lucid/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/lucid/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
-LOCAL_PATH := $(call vendor/minpop/)
+LOCAL_PATH := $(call vendor/lucid/)
 include $(call all-makefiles-under,$(LOCAL_PATH))
