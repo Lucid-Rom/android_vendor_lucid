@@ -22,5 +22,5 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# Include MinPop common uber configuration
-include vendor/minpop/config/uber.mk
+# Include Lucid common uber configuration
+include vendor/lucid/config/uber.mk
