@@ -28,6 +28,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-filter=everything \
     dalvik.vm.dex2oat-filter=everything
     
+# Include overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/minpop/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/minpop/overlay/$(TARGET_PRODUCT)
+
 # Launcher3 supported devices
 PRODUCT_PACKAGES += \
     Launcher3
@@ -36,6 +40,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
     
+# Backuptool support
+PRODUCT_COPY_FILES += \
+    vendor/minpop/prebuilt/addon.d/50-minpop.sh:system/addon.d/50-minpop.sh \
+    vendor/minpop/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/minpop/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
+
 # SuperSU
 PRODUCT_COPY_FILES += \
     vendor/minpop/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
