@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
 
 # Backuptool support
 PRODUCT_COPY_FILES += \
-    vendor/lucid/prebuilt/addon.d/50-minpop.sh:system/addon.d/50-minpop.sh \
+    vendor/lucid/prebuilt/addon.d/50-lucid.sh:system/addon.d/50-lucid.sh \
     vendor/lucid/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
     vendor/lucid/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
 
