@@ -1,1 +1,1 @@
-# android_vendor_minpop
+Lucid vendor files
