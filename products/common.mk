@@ -1,7 +1,7 @@
 # Generic product
-#PRODUCT_NAME := lucid
-#PRODUCT_BRAND := lucid
-#PRODUCT_DEVICE := generic
+PRODUCT_NAME := lucid
+PRODUCT_BRAND := lucid
+PRODUCT_DEVICE := generic
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
@@ -36,6 +36,18 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/lucid/overlay/$(TARGET_PRODUCT)
 PRODUCT_PACKAGES += \
     Launcher3
 
+# Build SimToolKit
+PRODUCT_PACKAGES += \
+    Stk
+
+# Latin IME lib - gesture typing
+PRODUCT_COPY_FILES += \
+    vendor/lucid/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+
+# APN list
+PRODUCT_COPY_FILES += \
+    vendor/lucid/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
@@ -46,14 +58,25 @@ PRODUCT_COPY_FILES += \
 
 # Backuptool support
 PRODUCT_COPY_FILES += \
-    vendor/lucid/prebuilt/addon.d/50-lucid.sh:system/addon.d/50-lucid.sh \
-    vendor/lucid/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/lucid/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
+    vendor/lucid/prebuilt/common/addon.d/50-lucid.sh:system/addon.d/50-lucid.sh \
+    vendor/lucid/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/lucid/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh
 
 # SuperSU
 PRODUCT_COPY_FILES += \
     vendor/lucid/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
     vendor/lucid/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+
+# DRM
+ifneq ($(filter lucid_shamu,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES += \
+        vendor/lucid/prebuilt/common/vendor/lib/libwvdrm_L1.so:/system/vendor/lib/libwvdrm_L1.so \
+        vendor/lucid/prebuilt/common/vendor/lib/libwvm.so:/system/vendor/lib/libwvm.so \
+        vendor/lucid/prebuilt/common/vendor/lib/mediadrm/libdrmclearkeyplugin.so:/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
+        vendor/lucid/prebuilt/common/vendor/lib/libWVStreamControlAPI_L1.so:/system/vendor/lib/libWVStreamControlAPI_L1.so \
+        vendor/lucid/prebuilt/common/vendor/lib/drm/libdrmwvmplugin.so:/system/vendor/lib/drm/libdrmwvmplugin.so \
+        vendor/lucid/prebuilt/common/vendor/lib/mediadrm/libwvdrmengine.so:/system/vendor/lib/mediadrm/libwvdrmengine.so 
+endif
 
 LOCAL_PATH := $(call vendor/lucid/)
 include $(call all-makefiles-under,$(LOCAL_PATH))
