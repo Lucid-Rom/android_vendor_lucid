@@ -67,16 +67,5 @@ PRODUCT_COPY_FILES += \
     vendor/lucid/prebuilt/common/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
     vendor/lucid/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
-# DRM
-ifneq ($(filter lucid_shamu,$(TARGET_PRODUCT)),)
-PRODUCT_COPY_FILES += \
-        vendor/lucid/prebuilt/common/vendor/lib/libwvdrm_L1.so:/system/vendor/lib/libwvdrm_L1.so \
-        vendor/lucid/prebuilt/common/vendor/lib/libwvm.so:/system/vendor/lib/libwvm.so \
-        vendor/lucid/prebuilt/common/vendor/lib/mediadrm/libdrmclearkeyplugin.so:/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so \
-        vendor/lucid/prebuilt/common/vendor/lib/libWVStreamControlAPI_L1.so:/system/vendor/lib/libWVStreamControlAPI_L1.so \
-        vendor/lucid/prebuilt/common/vendor/lib/drm/libdrmwvmplugin.so:/system/vendor/lib/drm/libdrmwvmplugin.so \
-        vendor/lucid/prebuilt/common/vendor/lib/mediadrm/libwvdrmengine.so:/system/vendor/lib/mediadrm/libwvdrmengine.so 
-endif
-
 LOCAL_PATH := $(call vendor/lucid/)
 include $(call all-makefiles-under,$(LOCAL_PATH))
