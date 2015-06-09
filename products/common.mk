@@ -56,10 +56,6 @@ PRODUCT_COPY_FILES += \
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-    
-# UKM for Vindicator
-PRODUCT_COPY_FILES += \
-    vendor/lucid/prebuilt/kernel/data/UKM.zip:system/addon.d/UKM.zip
 
 # Backuptool support
 PRODUCT_COPY_FILES += \
