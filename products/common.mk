@@ -41,6 +41,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Stk
 
+# Boot animation
+PRODUCT_COPY_FILES += \
+    vendor/lucid/prebuilt/shamu/system/media/bootanimation.zip:system/media/bootanimation.zip
+
 # Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
     vendor/lucid/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
